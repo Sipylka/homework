@@ -15,3 +15,6 @@ print(a == b)
 chislo = 123.456
 chislo *= 10
 print (int(chislo % 10))
+
+# "4th program 2nd version"
+print (int(float('123.456') * 10) % 10)
