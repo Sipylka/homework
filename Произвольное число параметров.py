@@ -1,7 +1,6 @@
 def single_root_words (root_word, *other_words):
     root_word = root_word.lower()
     same_words = []
-
     for word in other_words:
         word = word.lower()
         if word in root_word or root_word in word:
