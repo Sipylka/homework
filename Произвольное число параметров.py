@@ -1,8 +1,15 @@
-def summator (txt, *values, type = 'sum'):
-    s = 0
-    for i in values:
-        s += i
-    return f'{txt}{s} {type}'
+def single_root_words (root_word, *other_words):
+    root_word = root_word.lower()
+    same_words = []
 
+    for word in other_words:
+        word = word.lower()
+        if word in root_word or root_word in word:
+            same_words.append(word)
+    return same_words
 
-print(summator('Сумма чисел: ', 2, 3, 4, type = 'summator'))
+result1 = single_root_words('rich', 'richiest', 'orichalcum', 'cheers', 'richies')
+result2 = single_root_words('Disablement', 'Able', 'Mable', 'Disable', 'Bagel')
+
+print(result1)
+print(result2)
