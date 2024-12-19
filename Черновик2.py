@@ -1,23 +1,15 @@
-def send_email(message, recipient, *, sender="university.help@gmail.com"):
-    # Проверка на отправку самому себе
-    if recipient == sender:
-        print("Нельзя отправить письмо самому себе!")
-        return
-
-    # Проверка на корректность email-адресов
-    valid_domains = (".com", ".ru", ".net")
-    if "@" not in sender or not sender.endswith(valid_domains) or "@" not in recipient or not recipient.endswith(valid_domains):
-        print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
-        return
-
-    # Проверка на отправителя по умолчанию
-    if sender == "university.help@gmail.com":
-        print(f"Письмо успешно отправлено с адреса {sender} на адрес {recipient}.")
+def get_multiplied_digits(number):
+    str_number = str(number)
+    if not str_number:
+        return 1
+    first = int(str_number[0])
+    if first == 0:
+        return get_multiplied_digits(str_number[1:])
     else:
-        print(f"НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса {sender} на адрес {recipient}.")
+        return first * get_multiplied_digits(str_number[1:])
 
-# Примеры вызова функции
-send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
-send_email('Вы видите это сообщение как лучший студент курса!', 'urban.fan@mail.ru', sender='urban.info@gmail.com')
-send_email('Пожалуйста, исправьте задание', 'urban.student@mail.ru', sender='urban.teacher@mail.uk')
-send_email('Напоминаю самому себе о вебинаре', 'urban.teacher@mail.ru', sender='urban.teacher@mail.ru')
+result = get_multiplied_digits(40203)
+print(result)
+
+result2 = get_multiplied_digits(402030)
+print(result2)
